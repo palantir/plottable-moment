@@ -1,0 +1,15 @@
+{
+  "name": "plottable-locale",
+  "description": "An extension of Plottable to deal with locales",
+  "version": "0.0.1",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "gulp": "^3.9.0",
+    "gulp-mocha-phantomjs": "^0.10.1",
+    "gulp-server-livereload": "^1.5.3",
+    "gulp-typescript": "^2.9.0",
+    "merge2": "^0.3.6",
+    "mocha": "^2.3.2",
+    "typescript": "1.6.2"
+  }
+}
