@@ -1,0 +1,9 @@
+{
+  "name": "plottable-locale",
+  "description": "An extension of Plottable to deal with locales",
+  "version": "0.0.1",
+  "dependencies": {
+    "moment": "~2.10.6",
+    "plottable": "1.11.0"
+  }
+}

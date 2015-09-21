@@ -1,0 +1,13 @@
+# Built files
+plottable-locale-tests.js
+
+# Project specific
+local/
+
+# Dependencies
+bower_components/
+node_modules/
+typings/
+
+# Visual Studio Code
+.vscode/
