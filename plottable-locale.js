@@ -11,6 +11,14 @@ var Plottable;
         moment.locale(language);
     }
     Plottable.locale = locale;
+    /**
+     * Loads a locale into the library.
+     *
+     * After the locale is loaded it can be loaded using the id parameter
+     *
+     * @param {string} id Language identifier for the locale
+     * @param {moment.MomentLanguage} localeDefinition Definition for the locale
+     */
     function loadLocale(id, localeDefinition) {
         var currentLocale = moment.locale();
         moment.locale(id, localeDefinition);
@@ -20,6 +28,13 @@ var Plottable;
     Plottable.loadLocale = loadLocale;
     var Locales;
     (function (Locales) {
+        /**
+         * Creates a TimeAxisConfiguration array to use for Plottable's Axes.Time
+         * with formatters that are locale-friendly.
+         *
+         * After this TimeAxisConfiguration array is created, it can be used similar to
+         * timeAxis.axisConfigurations(Plottable.Locales.defaultTimeAxisConfigurations())
+         */
         function defaultTimeAxisConfigurations() {
             return [
                 [

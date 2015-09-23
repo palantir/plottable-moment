@@ -2,7 +2,15 @@
 
 module Plottable {
 
+  /**
+   * Gets the current locale.
+   */
   export function locale(): string;
+  /**
+   * Sets the current locale.
+   *
+   * Input is ignored if locale definition has not been loaded.
+   */
   export function locale(language: string): void;
   export function locale(language?: string): any {
     if (language == null) {
@@ -11,6 +19,14 @@ module Plottable {
     moment.locale(language);
   }
 
+  /**
+   * Loads a locale into the library.
+   *
+   * After the locale is loaded it can be loaded using the id parameter
+   *
+   * @param {string} id Language identifier for the locale
+   * @param {moment.MomentLanguage} localeDefinition Definition for the locale
+   */
   export function loadLocale(id: string, localeDefinition: moment.MomentLanguage) {
     let currentLocale = moment.locale();
     moment.locale(id, localeDefinition);
@@ -20,6 +36,13 @@ module Plottable {
 
   export module Locales {
 
+    /**
+     * Creates a TimeAxisConfiguration array to use for Plottable's Axes.Time
+     * with formatters that are locale-friendly.
+     *
+     * After this TimeAxisConfiguration array is created, it can be used similar to
+     * timeAxis.axisConfigurations(Plottable.Locales.defaultTimeAxisConfigurations())
+     */
     export function defaultTimeAxisConfigurations(): Axes.TimeAxisConfiguration[] {
       return [
         [
