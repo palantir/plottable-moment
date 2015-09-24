@@ -1,3 +1,29 @@
+# Extension of Plottable utilizing Moment
+
+## Overview
+Extension of Plottable utilizing Moment in order to better deal with localization.
+
+## Installation
+// TODO: publish project to bower
+- Through bower: `bower install --save plottable-moment`
+
+## Usage
+- Install plottable-moment.
+- On your webpage, be sure to load the scripts with the following constraints:
+  - D3 must be before plottable and plottable-moment.
+  - Moment must be before plottable-moment.
+  - Plottable must be before plottable-moment.
+
+## Development
+- Clone the repo
+- Install node: https://nodejs.org/en/download/
+- Install global dependencies: `npm install -g bower gulp gulp-cli`
+- Install dependencies through bower: `bower install`
+- Install dependencies through npm: `npm install`
+- Write source code + tests.
+- Create a pull request.
+
+## License
 The MIT License (MIT)
 
 Copyright (c) 2015 Palantir Technologies
