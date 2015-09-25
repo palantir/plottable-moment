@@ -10,7 +10,7 @@ module Plottable {
       * After this TimeAxisConfiguration array is created, it can be used similar to
       * timeAxis.axisConfigurations(Plottable.Locales.defaultTimeAxisConfigurations())
       */
-      export function defaultTimeAxisConfigurations(): TimeAxisConfiguration[] {
+      export function momentLocaleAwareAxisConfigurations(): TimeAxisConfiguration[] {
         return [
           [
             {interval: TimeInterval.second, step: 1, formatter: (d) => moment(d).format("LTS")},

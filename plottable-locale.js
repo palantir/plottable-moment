@@ -15,7 +15,7 @@ var Plottable;
             * After this TimeAxisConfiguration array is created, it can be used similar to
             * timeAxis.axisConfigurations(Plottable.Locales.defaultTimeAxisConfigurations())
             */
-            function defaultTimeAxisConfigurations() {
+            function momentLocaleAwareAxisConfigurations() {
                 return [
                     [
                         { interval: Plottable.TimeInterval.second, step: 1, formatter: function (d) { return moment(d).format("LTS"); } },
@@ -127,7 +127,7 @@ var Plottable;
                     ]
                 ];
             }
-            Time.defaultTimeAxisConfigurations = defaultTimeAxisConfigurations;
+            Time.momentLocaleAwareAxisConfigurations = momentLocaleAwareAxisConfigurations;
         })(Time = Axes.Time || (Axes.Time = {}));
     })(Axes = Plottable.Axes || (Plottable.Axes = {}));
 })(Plottable || (Plottable = {}));
