@@ -9,7 +9,7 @@ declare module Plottable {
             * with formatters that are locale-friendly.
             *
             * After this TimeAxisConfiguration array is created, it can be used similar to
-            * timeAxis.axisConfigurations(Plottable.Locales.defaultTimeAxisConfigurations())
+            * timeAxis.axisConfigurations(Plottable.Locales.momentLocaleAwareAxisConfigurations())
             */
             function momentLocaleAwareAxisConfigurations(): TimeAxisConfiguration[];
         }
