@@ -37,7 +37,7 @@ describe("Locales", () => {
 
     it("uses locale specific formatters in the configuration", () => {
       let testDate = new Date(1999, 10, 12);
-      let config = Plottable.Axes.Time.defaultTimeAxisConfigurations();
+      let config = Plottable.Axes.Time.momentLocaleAwareAxisConfigurations();
       let formatter = config[0][0].formatter;
       assert.strictEqual(formatter(testDate), moment(testDate).format(format), "formats to locale definition");
     });

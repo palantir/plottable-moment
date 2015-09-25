@@ -11,7 +11,7 @@ declare module Plottable {
             * After this TimeAxisConfiguration array is created, it can be used similar to
             * timeAxis.axisConfigurations(Plottable.Locales.defaultTimeAxisConfigurations())
             */
-            function defaultTimeAxisConfigurations(): TimeAxisConfiguration[];
+            function momentLocaleAwareAxisConfigurations(): TimeAxisConfiguration[];
         }
     }
 }
