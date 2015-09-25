@@ -8,7 +8,7 @@ gulp.task("build:src", function() {
   var typescriptResult = gulp.src("src/**/*.ts")
     .pipe(ts({
       noImplicitAny: true,
-      out: "plottable-locale.js",
+      out: "plottable-moment.js",
       declaration: true
 	  }))
   return merge([
@@ -21,7 +21,7 @@ gulp.task("build:test", function() {
   var typescriptResult = gulp.src("test/**/*.ts")
     .pipe(ts({
       noImplicitAny: true,
-      out: "plottable-locale-tests.js",
+      out: "plottable-moment-tests.js",
 	  }))
   return typescriptResult.js.pipe(gulp.dest("."));
 });
