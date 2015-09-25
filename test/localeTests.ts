@@ -3,35 +3,6 @@
 let assert = chai.assert;
 
 describe("Locales", () => {
-  describe("loading a locale", () => {
-
-    let localeDefinition = {};
-    let localeId = "foo";
-    let oldLocale: string;
-
-    before(() => {
-      oldLocale = Plottable.locale();
-    })
-
-    after(() => {
-      Plottable.locale(oldLocale);
-    })
-
-    it("can set the locale to a loaded locale", () => {
-      Plottable.loadLocale(localeId, localeDefinition);
-
-      Plottable.locale(localeId);
-      assert.strictEqual(Plottable.locale(), localeId);
-    });
-
-    it("can set the locale one of many loaded locales", () => {
-      let localeId2 = "bar";
-      Plottable.loadLocale(localeId2, localeDefinition);
-
-      Plottable.locale(localeId2);
-      assert.strictEqual(Plottable.locale(), localeId2);
-    });
-  });
 
   describe("calculating default time axis configurations", () => {
 
@@ -41,11 +12,11 @@ describe("Locales", () => {
     let format: string;
 
     before(() => {
-      oldLocale = Plottable.locale();
+      oldLocale = moment.locale();
     })
 
     after(() => {
-      Plottable.locale(oldLocale);
+      moment.locale(oldLocale);
     })
 
     beforeEach(() => {
@@ -61,13 +32,12 @@ describe("Locales", () => {
         }
       };
       localeId = "foo";
-      Plottable.loadLocale(localeId, localeDefinition);
-      Plottable.locale(localeId);
+      moment.locale(localeId, localeDefinition);
     })
 
     it("uses locale specific formatters in the configuration", () => {
       let testDate = new Date(1999, 10, 12);
-      let config = Plottable.Locales.defaultTimeAxisConfigurations();
+      let config = Plottable.Axes.Time.defaultTimeAxisConfigurations();
       let formatter = config[0][0].formatter;
       assert.strictEqual(formatter(testDate), moment(testDate).format(format), "formats to locale definition");
     });
