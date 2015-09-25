@@ -3,7 +3,7 @@
 
 /// <reference path="../typings/moment/moment.d.ts"/>
 
-/// <reference path="../plottable-locale.d.ts"/>
+/// <reference path="../plottable-moment.d.ts"/>
 
 /// <reference path="../typings/chai/chai.d.ts"/>
 /// <reference path="../typings/mocha/mocha.d.ts"/>
