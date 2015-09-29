@@ -3,6 +3,7 @@ var ts = require("gulp-typescript");
 var merge = require("merge2");
 var server = require("gulp-server-livereload");
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
+var tslint = require("gulp-tslint");
 
 gulp.task("build:src", function() {
   var typescriptResult = gulp.src("src/**/*.ts")
@@ -28,6 +29,16 @@ gulp.task("build:test", function() {
 
 gulp.task("build", ["build:src", "build:test"]);
 
+gulp.task("lint:ts", function() {
+  gulp.src(["src/**/*.ts", "test/**/*.ts"])
+    .pipe(tslint({
+      configuration: "lint/tslint.json"
+    }))
+    .pipe(tslint.report("verbose"));
+});
+
+gulp.task("lint", ["lint:ts"]);
+
 gulp.task("serve", function() {
   gulp.src('.')
     .pipe(server({
@@ -47,4 +58,4 @@ gulp.task("watch", function() {
   gulp.watch("test/**/*.ts", ["build:test"]);
 });
 
-gulp.task("default", ["watch", "build", "serve"]);
+gulp.task("default", ["watch", "build", "lint", "serve"]);
