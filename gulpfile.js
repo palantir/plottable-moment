@@ -37,6 +37,8 @@ gulp.task("lint:ts", function() {
     .pipe(tslint.report("verbose"));
 });
 
+gulp.task("lint", ["lint:ts"]);
+
 gulp.task("serve", function() {
   gulp.src('.')
     .pipe(server({
@@ -56,4 +58,4 @@ gulp.task("watch", function() {
   gulp.watch("test/**/*.ts", ["build:test"]);
 });
 
-gulp.task("default", ["watch", "build", "serve"]);
+gulp.task("default", ["watch", "build", "lint", "serve"]);
