@@ -4,7 +4,7 @@ let assert = chai.assert;
 
 describe("Locales", () => {
 
-  describe("calculating default time axis configurations", () => {
+  describe("modifying default time axis configurations", () => {
 
     let localeDefinition: moment.MomentLanguage;
     let localeId: string;
@@ -37,7 +37,8 @@ describe("Locales", () => {
 
     it("uses locale specific formatters in the configuration", () => {
       let testDate = new Date(1999, 10, 12);
-      let config = Plottable.Moment.localeAwareTimeAxisConfigurations();
+      let timeScale = new Plottable.Scales.Time();
+      let config = new Plottable.Axes.Time(timeScale, "bottom").axisConfigurations();
       let formatter = config[0][0].formatter;
       assert.strictEqual(formatter(testDate), moment(testDate).format(format), "formats to locale definition");
     });
