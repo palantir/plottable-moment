@@ -2,4 +2,4 @@
 
 describe("Locales", () => {
   it("should run");
-})
+});

@@ -7,9 +7,11 @@
     "gulp": "^3.9.0",
     "gulp-mocha-phantomjs": "^0.10.1",
     "gulp-server-livereload": "^1.5.3",
+    "gulp-tslint": "^3.3.0",
     "gulp-typescript": "^2.9.0",
     "merge2": "^0.3.6",
     "mocha": "^2.3.2",
+    "tslint": "^2.5.0",
     "typescript": "1.6.2"
   }
 }
