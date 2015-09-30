@@ -11,15 +11,8 @@ describe("Locales", () => {
     let oldLocale: string;
     let format: string;
 
-    before(() => {
-      oldLocale = moment.locale();
-    })
-
-    after(() => {
-      moment.locale(oldLocale);
-    })
-
     beforeEach(() => {
+      oldLocale = moment.locale();
       format = "[foo]";
       localeDefinition = {
         longDateFormat: {
@@ -33,7 +26,11 @@ describe("Locales", () => {
       };
       localeId = "foo";
       moment.locale(localeId, localeDefinition);
-    })
+    });
+
+    afterEach(() => {
+      moment.locale(oldLocale);
+    });
 
     it("uses locale specific formatters in the configuration", () => {
       let testDate = new Date(1999, 10, 12);
@@ -49,19 +46,19 @@ describe("Locales", () => {
       let secondFormat = "[bar]";
       let secondlocaleDefinition = {
         longDateFormat: {
-          LT: format,
-          LTS: format,
-          L: format,
-          LL: format,
-          LLL: format,
-          LLLL: format
+          LT: secondFormat,
+          LTS: secondFormat,
+          L: secondFormat,
+          LL: secondFormat,
+          LLL: secondFormat,
+          LLLL: secondFormat
         }
       };
       let secondlocaleId = "bar";
-      moment.locale(secondlocaleId, secondlocaleDefinition);
       let config = new Plottable.Axes.Time(timeScale, "bottom").axisConfigurations();
+      moment.locale(secondlocaleId, secondlocaleDefinition);
       let formatter = config[0][0].formatter;
-      assert.strictEqual(formatter(testDate), moment(testDate).format(format), "formats to locale definition");
+      assert.strictEqual(formatter(testDate), moment(testDate).format(secondFormat), "formats to locale definition");
     });
   });
 
