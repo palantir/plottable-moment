@@ -1,6 +1,6 @@
 {
   "name": "plottable-locale",
-  "description": "An extension of Plottable to deal with locales",
+  "description": "Plottable date/time formatting library built on Moment.js",
   "version": "0.0.1",
   "devDependencies": {
     "chai": "^3.2.0",
