@@ -1,7 +1,9 @@
 # Plottable date/time formatting library built on Moment.js
 
 ## Overview
-Add-on library for [Plottable](http://plottablejs.org/) to help format dates and times. Plottable-Moment is built on Moment.js. You can use a number of formatting options for date and times, or select a locale (through Moment) to set a default, region-specific date/time format.
+Add-on library for [Plottable](http://plottablejs.org/) to help format dates and times. 
+
+Plottable-Moment is built on Moment.js. You can use a number of formatting options for date and times, or select a locale (through Moment) to set a default, region-specific date/time format.
 
 ## Installation
 - Through bower: `bower install --save plottable-moment`
@@ -23,7 +25,7 @@ For more help on using Moment, see the [Moment documentation](http://momentjs.co
 4. Install dependencies through bower: `bower install`
 5. Install dependencies through npm: `npm install`
 6. Write your source code and tests.
-7. Fill out the [Personal]('Plottable-Moment Personal Contributor License Agreement.pdf') or [Corporate]('Plottable-Moment Corporate Contributor License Agreement.pdf') Contributor License Agreement and send it to [opensource@palantir.com](mailto:opensource@palantir.com). (You can do this easily on a Mac by using the **Tools > Annotate > Signature** feature in Preview.)
+7. Fill out the [Personal](Plottable-Moment Personal Contributor License Agreement.pdf) or [Corporate](Plottable-Moment Corporate Contributor License Agreement.pdf) Contributor License Agreement and send it to [opensource@palantir.com](mailto:opensource@palantir.com). (You can do this easily on a Mac by using the **Tools > Annotate > Signature** feature in Preview.)
 8. Submit a pull request with your changes.
 
 
