@@ -2,6 +2,4 @@
 /// <reference path="typings/plottable/plottable.d.ts" />
 /// <reference path="typings/moment/moment.d.ts" />
 declare module Plottable {
-    module Locales {
-    }
 }
