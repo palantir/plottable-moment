@@ -1,4 +1,4 @@
-# Plottable date/time formatting library built on Moment.js
+# Plottable-Moment
 
 ## Overview
 Add-on library for [Plottable](http://plottablejs.org/) to help format dates and times. 
@@ -27,27 +27,3 @@ For more help on using Moment, see the [Moment documentation](http://momentjs.co
 6. Write your source code and tests.
 7. Fill out the [Personal](Plottable-Moment Personal Contributor License Agreement.pdf) or [Corporate](Plottable-Moment Corporate Contributor License Agreement.pdf) Contributor License Agreement and send it to [opensource@palantir.com](mailto:opensource@palantir.com). (You can do this easily on a Mac by using the **Tools > Annotate > Signature** feature in Preview.)
 8. Submit a pull request with your changes.
-
-
-## License
-The MIT License (MIT)
-
-Copyright (c) 2015 Palantir Technologies
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
