@@ -1,82 +1,38 @@
 var gulp = require("gulp");
-var ts = require("gulp-typescript");
-var merge = require("merge2");
-var server = require("gulp-server-livereload");
-var mochaPhantomJS = require('gulp-mocha-phantomjs');
-var tslint = require("gulp-tslint");
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var compress = require("gulp-zip");
 
-gulp.task("build:src", function() {
-  var typescriptResult = gulp.src("src/**/*.ts")
-    .pipe(ts({
-      noImplicitAny: true,
-      out: "plottable-moment.js",
-      declaration: true
-	  }))
-  return merge([
-    typescriptResult.js.pipe(gulp.dest(".")),
-    typescriptResult.dts.pipe(gulp.dest("."))
-  ]);
-});
-
-gulp.task("build:test", function() {
-  var typescriptResult = gulp.src("test/**/*.ts")
-    .pipe(ts({
-      noImplicitAny: true,
-      out: "plottable-moment-tests.js",
-	  }))
-  return typescriptResult.js.pipe(gulp.dest("."));
-});
+// Building
+gulp.task("build:src", require("./tasks/build_src.js")());
+gulp.task("build:test", require("./tasks/build_test.js")());
 
 gulp.task("build", ["build:src", "build:test"]);
 
-gulp.task("lint:ts", function() {
-  gulp.src(["src/**/*.ts", "test/**/*.ts"])
-    .pipe(tslint({
-      configuration: "lint/tslint.json"
-    }))
-    .pipe(tslint.report("verbose"));
-});
+// Linting
+gulp.task("lint:ts", require("./tasks/lint_ts.js")());
 
 gulp.task("lint", ["lint:ts"]);
 
-gulp.task("serve", function() {
-  gulp.src('.')
-    .pipe(server({
-      port: 6300,
-      livereload: true,
-      directoryListing: true
-    }));
-});
+// Starting a server
+gulp.task("serve", require("./tasks/serve.js")());
 
-gulp.task("uglify", function() {
-  return gulp.src('plottable-moment.js')
-    .pipe(uglify({
-      out: "plottable-moment.min.js"
-    }))
-    .pipe(rename({
-      extname: ".min.js"
-    }))
-    .pipe(gulp.dest("."));
-});
+// Releasing
+gulp.task("package:uglify", require("./tasks/package_uglify.js")());
+gulp.task("package:compress", require("./tasks/package_compress.js")());
 
-gulp.task("compress", function() {
-  gulp.src(["plottable-moment.js", "plottable-moment.min.js", "plottable-moment.d.ts",
-    "README.md", "LICENSE"])
-    .pipe(compress("plottable-moment.zip"))
-    .pipe(gulp.dest('.'));
-})
+gulp.task("package", ["package:uglify", "package:compress"]);
 
-gulp.task("test", function() {
-  return gulp.src('test/tests.html')
-    .pipe(mochaPhantomJS());
-});
+// Testing
+gulp.task("test:unit:phantomJS", require("./tasks/test_unit_phantomJS.js")());
 
-gulp.task("watch", function() {
-  gulp.watch("src/**/*.ts", ["build:src", "build:test"]);
-  gulp.watch("test/**/*.ts", ["build:test"]);
-});
+gulp.task("test:unit", ["test:unit:phantomJS"]);
+
+gulp.task("test", ["test:unit"]);
+
+// Watching
+gulp.task("watch:src", require("./tasks/watch_src.js")());
+gulp.task("watch:test", require("./tasks/watch_test.js")());
+gulp.task("watch", ["watch:src", "watch:test"]);
+
+// Releasing
+gulp.task("release", ["build", "test", "lint", "package"]);
 
 gulp.task("default", ["watch", "build", "lint", "serve"]);
