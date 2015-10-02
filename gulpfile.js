@@ -6,6 +6,7 @@ var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var tslint = require("gulp-tslint");
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var compress = require("gulp-zip");
 
 gulp.task("build:src", function() {
   var typescriptResult = gulp.src("src/**/*.ts")
@@ -60,6 +61,13 @@ gulp.task("uglify", function() {
     }))
     .pipe(gulp.dest("."));
 });
+
+gulp.task("compress", function() {
+  gulp.src(["plottable-moment.js", "plottable-moment.min.js", "plottable-moment.d.ts",
+    "README.md", "LICENSE"])
+    .pipe(compress("plottable-moment.zip"))
+    .pipe(gulp.dest('.'));
+})
 
 gulp.task("test", function() {
   return gulp.src('test/tests.html')
