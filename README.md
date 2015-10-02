@@ -16,6 +16,7 @@ Plottable-Moment is built on Moment.js. You can use a number of formatting optio
   - Moment
   - plottable-moment
 
+Examples on how to use plottable-moment can we found on our [wiki page](https://github.com/bluong/plottable-moment/wiki).
 For more help on using Moment, see the [Moment documentation](http://momentjs.com/docs/).
 
 ## Contributing to Plottable-Moment
