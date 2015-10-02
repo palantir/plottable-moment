@@ -4,6 +4,8 @@ var merge = require("merge2");
 var server = require("gulp-server-livereload");
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var tslint = require("gulp-tslint");
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
 gulp.task("build:src", function() {
   var typescriptResult = gulp.src("src/**/*.ts")
@@ -46,6 +48,17 @@ gulp.task("serve", function() {
       livereload: true,
       directoryListing: true
     }));
+});
+
+gulp.task("uglify", function() {
+  return gulp.src('plottable-moment.js')
+    .pipe(uglify({
+      out: "plottable-moment.min.js"
+    }))
+    .pipe(rename({
+      extname: ".min.js"
+    }))
+    .pipe(gulp.dest("."));
 });
 
 gulp.task("test", function() {

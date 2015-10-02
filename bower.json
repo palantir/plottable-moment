@@ -8,6 +8,7 @@
     "**/*",
     "!bower.json",
     "!plottable-moment.js",
+    "!plottable-moment.min.js",
     "!plottable-moment.d.ts"
   ],
   "keywords": [
