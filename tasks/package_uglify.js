@@ -5,9 +5,7 @@ var rename = require('gulp-rename');
 module.exports = function() {
   return function () {
     gulp.src('plottable-moment.js')
-      .pipe(uglify({
-        out: "plottable-moment.min.js"
-      }))
+      .pipe(uglify())
       .pipe(rename({
         extname: ".min.js"
       }))
