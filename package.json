@@ -1,7 +1,13 @@
 {
-  "name": "plottable-locale",
+  "name": "plottable-moment",
   "description": "Plottable date/time formatting library built on Moment.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/palantir/plottable.git"
+  },
+  "author": "Palantir Technologies",
   "devDependencies": {
     "chai": "^3.2.0",
     "gulp": "^3.9.0",
