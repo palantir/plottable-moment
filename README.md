@@ -21,12 +21,13 @@ For more help on using Moment, see the [Moment documentation](http://momentjs.co
 ## Contributing to Plottable-Moment
 1. Clone this repository.
 2. Install node: https://nodejs.org/en/download/
-3. Install bower, gulp, and gulp-cli globally on your system: `npm install -g bower gulp gulp-cli`
+3. Install bower, gulp, gulp-cli, and tsd globally on your system: `npm install -g bower gulp gulp-cli tsd`
 4. Install dependencies through bower: `bower install`
 5. Install dependencies through npm: `npm install`
-6. Write your source code and tests.
-7. Fill out the [Personal](link) or [Corporate](link) Contributor License Agreement and send it to [opensource@palantir.com](mailto:opensource@palantir.com). (You can do this easily on a Mac by using the **Tools > Annotate > Signature** feature in Preview.)
-8. Submit a pull request with your changes.
+6. Install typing dependencies through tsd: `tsd install`
+7. Write your source code and tests.
+8. Fill out the [Personal](link) or [Corporate](link) Contributor License Agreement and send it to [opensource@palantir.com](mailto:opensource@palantir.com). (You can do this easily on a Mac by using the **Tools > Annotate > Signature** feature in Preview.)
+9. Submit a pull request with your changes.
 
 
 ## License
