@@ -2,7 +2,9 @@
   "name": "plottable-moment",
   "description": "Plottable date/time formatting library built on Moment.js",
   "version": "0.1.0",
-  "main": ["plottable-moment.js"],
+  "main": [
+    "plottable-moment.js"
+  ],
   "license": "MIT",
   "ignore": [
     "**/*",
@@ -20,7 +22,8 @@
   ],
   "dependencies": {
     "moment": "~2.10.6",
-    "plottable": "1.11.0"
+    "plottable": "1.11.0",
+    "moment-timezone": "~0.4.1"
   },
   "repository": {
     "type": "git",

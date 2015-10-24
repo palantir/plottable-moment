@@ -1,6 +1,7 @@
 /// <reference path="../typings/d3/d3.d.ts"/>
 /// <reference path="../typings/plottable/plottable.d.ts"/>
 /// <reference path="../typings/moment/moment.d.ts"/>
+/// <reference path="../typings/moment-timezone/moment-timezone.d.ts"/>
 /// <reference path="references.ts"/>
 var Plottable;
 (function (Plottable) {
@@ -116,4 +117,18 @@ var Plottable;
     ];
     // HACKHACK: https://github.com/palantir/plottable/issues/2824 default config variable not publicized
     Plottable.Axes.Time._DEFAULT_TIME_AXIS_CONFIGURATIONS = localeAwareTimeAxisConfigurations;
+})(Plottable || (Plottable = {}));
+var Plottable;
+(function (Plottable) {
+    var Axes;
+    (function (Axes) {
+        Axes.Time.prototype.setTimeZone = function (timezone) {
+            this._timezone = timezone;
+            return this;
+        };
+        Axes.Time.prototype.formatTickLabels = function (labelPos) {
+            var _this = this;
+            return labelPos.map(function (l) { return moment(l).tz(_this._timezone); });
+        };
+    })(Axes = Plottable.Axes || (Plottable.Axes = {}));
 })(Plottable || (Plottable = {}));

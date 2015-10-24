@@ -2,3 +2,4 @@
 /// <reference path="../typings/plottable/plottable.d.ts"/>
 
 /// <reference path="../typings/moment/moment.d.ts"/>
+/// <reference path="../typings/moment-timezone/moment-timezone.d.ts"/>

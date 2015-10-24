@@ -114,4 +114,16 @@ module Plottable {
 
   // HACKHACK: https://github.com/palantir/plottable/issues/2824 default config variable not publicized
   (<any> Axes.Time)._DEFAULT_TIME_AXIS_CONFIGURATIONS = localeAwareTimeAxisConfigurations;
+  
+}
+
+module Plottable.Axes {  
+  Time.prototype.setTimeZone = function(timezone: string) {
+    this._timezone = timezone;
+    return this;
+  }
+
+  Time.prototype.formatTickLabels = function (labelPos: Date[]) {
+    return labelPos.map((l) => moment(l).tz(this._timezone));
+  }
 }
