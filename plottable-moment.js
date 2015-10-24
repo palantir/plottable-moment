@@ -1,7 +1,13 @@
 /// <reference path="../typings/d3/d3.d.ts"/>
 /// <reference path="../typings/plottable/plottable.d.ts"/>
 /// <reference path="../typings/moment/moment.d.ts"/>
+/// <reference path="../typings/moment-timezone/moment-timezone.d.ts"/>
 /// <reference path="references.ts"/>
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Plottable;
 (function (Plottable) {
     var localeAwareTimeAxisConfigurations = [
@@ -116,4 +122,32 @@ var Plottable;
     ];
     // HACKHACK: https://github.com/palantir/plottable/issues/2824 default config variable not publicized
     Plottable.Axes.Time._DEFAULT_TIME_AXIS_CONFIGURATIONS = localeAwareTimeAxisConfigurations;
+})(Plottable || (Plottable = {}));
+var Plottable;
+(function (Plottable) {
+    var Axes;
+    (function (Axes) {
+        var TimeZone = (function (_super) {
+            __extends(TimeZone, _super);
+            /**
+             * Constructs a Time Axis.
+             *
+             * A Time Axis is a visual representation of a Time Scale.
+             *
+             * @constructor
+             * @param {Scales.Time} scale
+             * @param {string} orientation One of "top"/"bottom".
+             */
+            function TimeZone(scale, orientation, timezone) {
+                this._timezone = timezone;
+                _super.call(this, scale, orientation);
+            }
+            TimeZone.prototype._formatTickLabels = function (labelPos) {
+                var _this = this;
+                return labelPos.map(function (l) { return moment(l).tz(_this._timezone); });
+            };
+            return TimeZone;
+        })(Axes.Time);
+        Axes.TimeZone = TimeZone;
+    })(Axes = Plottable.Axes || (Plottable.Axes = {}));
 })(Plottable || (Plottable = {}));

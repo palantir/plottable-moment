@@ -114,4 +114,28 @@ module Plottable {
 
   // HACKHACK: https://github.com/palantir/plottable/issues/2824 default config variable not publicized
   (<any> Axes.Time)._DEFAULT_TIME_AXIS_CONFIGURATIONS = localeAwareTimeAxisConfigurations;
+  
+}
+
+module Plottable.Axes {
+  export class TimeZone extends Time {
+    private _timezone: string;
+    /**
+     * Constructs a Time Axis.
+     *
+     * A Time Axis is a visual representation of a Time Scale.
+     *
+     * @constructor
+     * @param {Scales.Time} scale
+     * @param {string} orientation One of "top"/"bottom".
+     */
+    constructor(scale: Scales.Time, orientation: string, timezone: string) {
+      this._timezone = timezone;
+      super(scale, orientation);
+    }
+    
+    private _formatTickLabels(labelPos: Date[]) {
+      return labelPos.map((l) => moment(l).tz(this._timezone));
+    }
+  }
 }
